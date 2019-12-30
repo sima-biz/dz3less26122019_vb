@@ -1,60 +1,195 @@
-/*
-Write all less code in this file
-Import another styles from less files using @import "[NAME_OF_FILE].less"
-*/
-// Example styles
-@font-face {
-  font-family: "christmas";
-  src: url("../fonts/christmaseve.ttf");
-}
-
-@bgColor: grey;
-@headerColor: #373333;
-
-@size: 40px;
-@family: "christmas";
-
-.baseBodyStyles() {
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+body {
+  display: flex;
+  justify-content: space-around;
   margin: 0;
   padding: 0;
-}
-
-.flex(@direction) {
-  display: flex;
-  align-items: center;
+  margin: 0 auto;
+  height: 100vh auto;
+  width: 100vw auto;
   justify-content: center;
-  flex-direction: @direction;
-}
-
-body {
-  .flex(column);
-  .baseBodyStyles();
-  background: @bgColor;
-
-  & > * {
-    font-size: @size;
+  align-items: center;
+  .bar {
+    width: 180px;
+    height: 672px;
+    justify-content: center;
+    align-items: center;
+    -webkit-animation: rotateit 3s linear infinite;
+    animation: rotateit 3s linear infinite;
+    @-webkit-keyframes rotateit {
+      0% { -webkit-transform: rotate(0deg);}
+      45% { -webkit-transform: rotate(0deg);}
+      50% { -webkit-transform: rotate(180deg);}
+      95% { -webkit-transform: rotate(180deg);}
+      100% { -webkit-transform: rotate(360deg);} 
+    }
+    @keyframes rotateit {
+      0% { transform: rotate(0deg);}
+      45% { transform: rotate(0deg);}
+      50% { transform: rotate(180deg);}
+      95% { transform: rotate(180deg);}
+      100% { transform: rotate(360deg);}
+    }  
+    .flask-board {
+      position: absolute;
+      top: 20px;
+      width: 180px;
+      height: 90px;
+      background: black;
+      border-radius: 2000px 2000px 0px 0px;
+    }
+    .flask {
+      position: absolute;
+      top: 110px;
+      width: 0px;
+      height: 0px;
+      margin: 0 auto;
+      border-right: 90px solid transparent;
+      border-left: 90px solid transparent;
+      border-top: 232px solid black;
+      border-radius: 0px 0px 0px 0px;
+    }
+    .flask-top {
+      position: absolute;
+      padding: 0;
+      width: 0px;
+      height: 0px;
+      margin: 110px 0px 0px 11px;
+      border-left: 79px solid transparent;
+      border-right: 79px solid transparent;
+      border-top: 220px solid blue;
+    }
+    .flask-top {
+      -webkit-animation: rotateit2 3s linear infinite;
+      animation: rotateit2 3s linear infinite;
+    }
+    @-webkit-keyframes rotateit2 {
+      0% { border-top: 210px solid blue;}
+      50% { border-top: 0px solid blue;
+            margin: 320px 0px 0px 90px;
+            border-left: 0px solid transparent;
+            border-right: 0px solid transparent;}
+      100% { border-top: 210px solid;}  
+    }
+    @keyframes rotateit2 {
+      0% { border-top: 210px solid blue;}
+      50% { border-top: 0px solid blue;
+            margin: 320px 0px 0px 90px;
+            border-left: 0px solid transparent;
+            border-right: 0px solid transparent;}
+      100% { border-top: 210px solid blue;} 
+    }
+    .center {
+      position: absolute;
+      width: 16px;
+      height: 55px;
+      margin: 308px 0 0 82px;
+      background: black;
+    } 
+    .flask-board_w {
+      position: absolute;
+      top: 562px;
+      width: 180px;
+      height: 90px;
+      background: black;
+      border-radius: 2000px 2000px 0px 0px;
+      transform: rotate(180deg);
+    }
+    .flask_w {
+      position: absolute;
+      top: 330px;
+      width: 0px;
+      height: 0px;
+      margin: 0 auto;
+      border-right: 90px solid transparent;
+      border-left: 90px solid transparent;
+      border-top: 232px solid black;
+      border-radius: 0px 0px 0px 0px;
+      transform: rotate(180deg);
+    }
+    .flask-top_w {
+      position: absolute;
+      padding: 0;
+      width: 0px;
+      height: 0px;
+      margin: 344px 0px 0px 11px;
+      border-left: 79px solid transparent;
+      border-right: 79px solid transparent;
+      border-top: 217px solid blue;
+      transform: rotate(180deg);
+    }
+    .flask-top_w {
+      -webkit-animation: rotateit3 3s linear infinite;
+      animation: rotateit3 3s linear infinite;
+      animation-delay: 1.5s;
+    }
+    @-webkit-keyframes rotateit3 {
+      0% { border-top: 217px solid blue;}
+      50% { border-top: 0px solid blue;
+            margin: 352px 0px 0px 90px;
+            border-left: 0px solid transparent;
+            border-right: 0px solid transparent;}
+      100% { border-top: 217px solid blue;} 
+    }
+    @keyframes rotateit3 {
+      0% { border-top: 217px solid blue;}
+      50% { border-top: 0px solid blue;
+            margin: 352px 0px 0px 90px;
+            border-left: 0px solid transparent;
+            border-right: 0px solid transparent;}
+      100% { border-top: 217px solid blue;} 
+    }  
   }
-  & img {
-    border: 0.5px solid rgba(0, 0, 0, 0.5);
-    height: 250px;
-    width: 500px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 21px 30px #5c5656;
+  .board_w {
+    position: absolute;
+    margin: auto;
+    height: 100px;
+    width: 415px;
+    background: white;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin: -281px 0 0 0px; 
   }
-
-  & h1 {
-    .flex(row);
-    font-family: @family;
-    color: @headerColor;
+  .board-v_w {
+    position: absolute;
+    margin: auto;
+    height: 35px;
+    width: 285px;
+    background: black;
+    top: 55px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50px; 
   }
-}
-
-.main_body {
-  &_text {
-    font-size: 35px;
-    font-family: @family;
+  .board { 
+    position: absolute;
+    margin: auto;
+    height: 100px;
+    width: 415px;
+    background: white;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    margin: 281px 0 0 0px; 
   }
+  .board-v {
+    position: absolute;
+    margin: auto;
+    height: 35px;
+    width: 285px;
+    background: black;
+    top: -55px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }   
 }
